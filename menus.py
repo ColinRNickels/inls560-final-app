@@ -1,6 +1,7 @@
 #!usr/bin/python3
 # This is where we host our functions that display menus
 from variables import *
+from fileChangers import *
 
 def fileMenu():
     print(optionsFiles)
@@ -39,9 +40,9 @@ def topLevelMenu():
         if(userSays == "3"):
             going = False
         elif(userSays == "1"):
-            fileToOpen = fileMenu()
-            print(fileToOpen)
+            thing = openFile(fileMenu())
+            print(thing)
         elif(userSays == "2"):
             print("To import your own data, please go to the github repository and attach a file. \n Then come back here and rerun this program. \n If you've already done this, please give me the name of your file")
-            fileToOpen = input("")
+            openFile(input(""))
             
