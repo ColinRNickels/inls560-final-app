@@ -8,3 +8,4 @@ optionsFiles ="""1 - Open Mock Data 1
 3 - Open Mock Data 3
 4 - Import your own data
 5 - Exit to main menu"""
+s
