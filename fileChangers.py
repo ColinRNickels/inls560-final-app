@@ -20,13 +20,9 @@ def percentBreakdown(tarFile, colNum):
                 q2 = q2 + 1
             else:
                 continue
-    print(q1,q2)
-    input()
     p1 = (q1/(q1+q2)*100)
-    print(p1)
-    input()
     p2 = 100 - p1
-    print(str(int(p1)) + " percent male")
-    print(str(int(p2)) + " percent female")
+    print("*" * int((p1/10)) + " - " + str(int(p1)) + " percent male")
+    print("*" * int((p2/10)) + " - " + str(int(p2)) + " percent female")
             
         
