@@ -1,9 +1,8 @@
 #!usr/bin/python3
-userWantsToKeepGoing = True
-while(userWantsToKeepGoing):
-    userSays = str(input("Do you want to keep going \n"))
-    print((userSays == "no"))
-    if(userSays == "no"):
-        userWantsToKeepGoing = False
-    else:
-        input("how about now?")
+from menus import *
+from fileChangers import *
+
+print("Welcome to SalesData+ \n please choose an option:")
+# topLevelMenu()
+percentBreakdown("mock_data1.csv", 4)
+
