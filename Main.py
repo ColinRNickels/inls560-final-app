@@ -1,8 +1,11 @@
 #!usr/bin/python3
 from menus import *
 from fileChangers import *
+import webbrowser
 
-print("Welcome to SalesData+ \n please choose an option:")
+
+print(intro)
 # topLevelMenu()
-percentBreakdown("mock_data1.csv", 4)
+# IPQuery("34.16.156.60")
+webbrowser.open('https://www.google.com/maps/place/Denver', new=0, autoraise=True)
 
