@@ -2,7 +2,10 @@
 def openFile(tarFile):
     with open(tarFile) as temp:
         fileDump = temp.readlines()
+    print("You opened " + tarFile)
     return fileDump
+
+#This function takes a target file, and a collumn number of that file. It reads the file into a list of lists (a table.) and prints out a horizontal bar chart of the percentage breakdown of the two options for that collumn. This particular function is hard coded to look for Male and Female, but it could be changed to look for other values.
 def percentBreakdown(tarFile, colNum):
     q1 = 0
     q2 = 0
@@ -25,4 +28,3 @@ def percentBreakdown(tarFile, colNum):
     print("*" * int((p1/10)) + " - " + str(int(p1)) + " percent male")
     print("*" * int((p2/10)) + " - " + str(int(p2)) + " percent female")
             
-        
