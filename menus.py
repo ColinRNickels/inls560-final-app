@@ -1,48 +1,113 @@
 #!usr/bin/python3
 # This is where we host our functions that display menus
-from variables import *
+from menuText import *
 from fileChangers import *
 
 def fileMenu():
-    print(optionsFiles)
     going = True
     while(going):
-        userSays = input("")
+        print("=" * 45)
+        userSays = input("Please select one of the following options \n" + "=" * 45 + "\n" + optionsFiles  + "\n")
         if(userSays == "5"):
-            topLevelMenu()
+            break
         elif(userSays == "1"):
             print("you said 1")
             fileOpen = "mock_data1.csv"
-            return fileOpen
+            fileOptions(fileOpen)
         elif(userSays == "2"):
             print("you said 2")
             fileOpen = "mock_data2.csv"
-            return fileOpen
+            fileOptions(fileOpen)
         elif(userSays == "3"):
             print("you said 3")
             fileOpen = "mock_data3.csv"
-            return fileOpen
+            fileOptions(fileOpen)
         elif(userSays == "4"):
             print("To import your own data, please go to the github repository and attach a file. \n Then come back here and rerun this program. \n If you've already done this, please give me the name of your file")
             fileOpen = input("")
-            return fileOpen
+            fileOptions(fileOpen)
+        if(userSays == "x"):
+            #Found this way to exit on http://stackoverflow.com/questions/19747371/python-exit-commands-why-so-many-and-when-should-each-be-used
+            raise SystemExit()
         else:
-            print("Please choose one of the options:" + optionsFiles)
             continue
             
             
 
 def topLevelMenu():
-    print(optionsTop)
     going = True
     while(going):
-        userSays = input("")
-        if(userSays == "3"):
+        print("=" * 45)
+        userSays = input("Please select one of the following options \n"  + "=" * 45 + "\n" + optionsTop + "\n")
+        if(userSays == "x"):
             going = False
         elif(userSays == "1"):
             thing = openFile(fileMenu())
             print(thing)
         elif(userSays == "2"):
             print("To import your own data, please go to the github repository and attach a file. \n Then come back here and rerun this program. \n If you've already done this, please give me the name of your file")
-            openFile(input(""))
+            fileOptions(fileOpen)
+        else: 
+            continue
             
+def fileOptions(tarFile):
+    going = True
+    while (going):
+        print("=" * 45)
+        userSays = input("Please select one of the following options \n" + "=" * 45 + "\n" + optionsFunctions + "\n")
+        if(userSays == "9"):
+            going = False
+        
+        if(userSays == "x"):
+            #Found this way to exit on http://stackoverflow.com/questions/19747371/python-exit-commands-why-so-many-and-when-should-each-be-used
+            raise SystemExit()
+            
+        elif(userSays == "1"):
+            percentBreakdown(tarFile, 4)
+            going = askContinue()
+            
+        elif(userSays == "2"):
+            topFive(tarFile, 1)
+            going = askContinue()
+           
+        elif(userSays == "3"):
+            topFive(tarFile, 2)
+            going = askContinue()
+            
+        elif(userSays == "4"):
+            print("The average amount owed is: ", averageValue(tarFile, 7))
+            going = askContinue()
+            
+        elif(userSays == "5"):
+            print("The average amount paid is: ", averageValue(tarFile, 8))
+            
+            going = askContinue()
+            
+        elif(userSays == "6"):
+            print("The best referring domain is: ", number1(tarFile, 6))
+            going = askContinue()
+            
+        elif(userSays == "7"):
+            topCustomer(tarFile,8)
+            going = askContinue()
+        
+        elif(userSays == "8"):
+            going = False
+           
+            
+        else:
+           continue
+       
+def askContinue():
+    going = True
+    while(going):
+        print("=" * 45)
+        userSays = input("Please select one of the following options \n"  + "=" * 45 + "\n" + done + "\n")
+        if(userSays == "x"):
+            raise SystemExit
+        elif(userSays == "1"):
+            return True
+        elif(userSays == "2"):
+            return False
+        else:
+            continue
