@@ -75,22 +75,20 @@ def fileOptions(tarFile):
             going = askContinue()
             
         elif(userSays == "4"):
-            print("you said 4")
             print("The average amount owed is: ", averageValue(tarFile, 7))
             going = askContinue()
             
         elif(userSays == "5"):
-            print("you said 5")
             print("The average amount paid is: ", averageValue(tarFile, 8))
             
             going = askContinue()
             
         elif(userSays == "6"):
-            print("you said 6")
+            print("The best referring domain is: ", number1(tarFile, 6))
             going = askContinue()
             
         elif(userSays == "7"):
-            print("you said 7")
+            topCustomer(tarFile,8)
             going = askContinue()
         
         elif(userSays == "8"):

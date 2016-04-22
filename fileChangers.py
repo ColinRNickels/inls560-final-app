@@ -35,6 +35,7 @@ def percentBreakdown(tarFile, colNum):
     print("*" * int((p2/10)) + " - " + str(int(p2)) + " percent female")
             
 #This function takes a filename and collumn number and prints the top five most frequent values and prints a horizontal bar chart representing their frequency.
+
 def topFive(tarFile, colNum):
     with open(tarFile) as temp:
         workingFile = temp.readlines()
@@ -55,6 +56,28 @@ def topFive(tarFile, colNum):
             print(item + ": \t\t " + "*" * (data[item]))
         else:
             print(item + ": \t " + "*" * (data[item]))
+            
+#This Function returns the largest key/value pair in a dict built from a file.
+def number1(tarFile, colNum):
+    largest = None
+    with open(tarFile) as temp:
+        workingFile = temp.readlines()
+        table = []
+        for line in workingFile:
+            table.append(line.split(","))
+        data = dict()
+    for row in table[1:]:
+        if row[colNum] not in data:
+            data[row[colNum]] = 1
+        else:
+            data[row[colNum]] = data[row[colNum]] + 1
+    for currentVal in data.keys() :
+        if largest is None or data[currentVal] > largest :
+            largest = data[currentVal]
+            key = currentVal
+    print(key, largest)
+    
+#This function takes a target csv file, sums an entire collumn and averages its content.
 def averageValue(tarFile, colNum):
     counter = 0
     total = 0
@@ -73,5 +96,23 @@ def averageValue(tarFile, colNum):
     printAv = av[:5]
     return printAv    
         
-       
-    
+#This function takes a target csv file, turns it into a table (list of lists), finds the largest value in one collumn of that list, then returns the value, and two other cells on that row
+def topCustomer(tarFile, colNum):
+    with open(tarFile) as temp:
+        biggestAmount = None
+        biggestRow = None
+        rowNum = 0
+        workingFile = temp.readlines()
+        table = []
+        for line in workingFile:
+            table.append(line.split(","))
+        for row in table[1:]:
+            rowNum = rowNum + 1
+            if biggestAmount is None or row[colNum] > biggestAmount:
+                biggestAmount = row[colNum]
+                biggestRow = rowNum
+        # print(biggestAmount, biggestRow)
+        print("The Best Customer is: ", table[biggestRow][1],table[biggestRow][2])
+        print("They have paid: ", biggestAmount)
+        print("$" * (int(float(biggestAmount[1:])/100)))
+        print("Each '$' = 100 dollars")
