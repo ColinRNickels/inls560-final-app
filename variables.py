@@ -27,3 +27,6 @@ x - Exit to command line"""
 helpText = "At any time press space bar to get a list of options."
 
 intro = "Welcome to SalesData+ \nThis program offers several different ways of examining a set of sales data.\nOn any screen enter to see what your current options are. \nEnter '?' for help"
+
+done = """1 - Continue
+x - Exit """

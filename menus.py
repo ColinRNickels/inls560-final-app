@@ -64,28 +64,46 @@ def fileOptions(tarFile):
             
         elif(userSays == "1"):
             percentBreakdown(tarFile, 4)
+            askContinue()
             
         elif(userSays == "2"):
-            print("you said 2")
+            topFive(tarFile, 1)
+            askContinue()
            
         elif(userSays == "3"):
-            print("you said 3")
+            topFive(tarFile, 2)
+            askContinue()
             
         elif(userSays == "4"):
             print("you said 4")
+            askContinue()
             
         elif(userSays == "5"):
             print("you said 5")
+            askContinue()
             
         elif(userSays == "6"):
             print("you said 6")
+            askContinue()
             
         elif(userSays == "7"):
             print("you said 7")
+            askContinue()
         
         elif(userSays == "8"):
             print("you said 8")
+            askContinue()
             
             
         else:
            continue
+       
+def askContinue():
+    going = True
+    while(going):
+        print("=" * 45)
+        userSays = input("Please select one of the following options \n"  + "=" * 45 + "\n" + done + "\n")
+        if(userSays == "x"):
+            raise SystemExit
+        elif(userSays == "1"):
+            going = False

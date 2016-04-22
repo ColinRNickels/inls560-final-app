@@ -1,4 +1,10 @@
 #This module holds my functions that manipulate files
+import heapq
+#This function comes from http://www.pataprogramming.com/2010/03/python-dict-n-largest/ with some modification
+#With lots of help from https://docs.python.org/3.0/library/heapq.html
+def largest(dictionary,numberwanted):
+    return heapq.nlargest(numberwanted, dictionary, key = lambda k: dictionary[k])
+
 def openFile(tarFile):
     with open(tarFile) as temp:
         fileDump = temp.readlines()
@@ -28,3 +34,24 @@ def percentBreakdown(tarFile, colNum):
     print("*" * int((p1/10)) + " - " + str(int(p1)) + " percent male")
     print("*" * int((p2/10)) + " - " + str(int(p2)) + " percent female")
             
+#This function takes a filename and collumn number and prints the top five most frequent values and prints a horizontal bar chart representing their frequency.
+def topFive(tarFile, colNum):
+    with open(tarFile) as temp:
+        workingFile = temp.readlines()
+        table = []
+        for line in workingFile:
+            table.append(line.split(","))
+    data = dict()
+    for row in table:
+     if row[colNum] not in data:
+        data[row[colNum]] = 1
+     else:
+        data[row[colNum]] = data[row[colNum]] + 1   
+    keys = largest(data,5)
+    print("The top five most common names are")
+    for item in keys:
+        #This checks to see if the name is short, so that it can help align the bar chart.
+        if (len(item) < 6):
+            print(item + ": \t\t " + "*" * (data[item]))
+        else:
+            print(item + ": \t " + "*" * (data[item]))
