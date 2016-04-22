@@ -1,5 +1,5 @@
 #!usr/bin/python3
-# This is where we declare variables that effect the whole program
+# This module holds all the text that the menus display
 
 optionsTop = """1 - Choose a file
 2 - Import a file

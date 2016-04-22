@@ -3,6 +3,7 @@
 from menuText import *
 from fileChangers import *
 
+#this menu allows you to choose what file you want to operate on.
 def fileMenu():
     going = True
     while(going):
@@ -42,7 +43,7 @@ def fileMenu():
             continue
             
             
-
+#this is the first menu, it calls other menus and functions as requested by the user.
 def topLevelMenu():
     going = True
     while(going):
@@ -68,6 +69,7 @@ def topLevelMenu():
         else: 
             continue
             
+#This is the menu that operates on files. It takes an argument that it passes to all the other functions.            
 def fileOptions(tarFile):
     going = True
     while (going):
@@ -120,6 +122,7 @@ def fileOptions(tarFile):
         else:
            continue
        
+ #This little function allows the user to opt out after getting any data.      
 def askContinue():
     going = True
     while(going):

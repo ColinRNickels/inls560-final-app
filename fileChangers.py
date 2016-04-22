@@ -1,11 +1,13 @@
 #This module holds my functions that manipulate files
 import urllib.request, urllib.error
 import heapq
-import webbrowser
+
 #This function comes from http://www.pataprogramming.com/2010/03/python-dict-n-largest/ with some modification
+#My understanding of Heaps is limited, but they seem like a good way to store different kinds of data in a sortable data structure. And they have built in functions that return the largest values.
 #With lots of help from https://docs.python.org/3.0/library/heapq.html
-def largest(dictionary,numberwanted):
-    return heapq.nlargest(numberwanted, dictionary, key = lambda k: dictionary[k])
+#In the below, Lamba serves to create an anonymous function that basically pulls the value for each corresponding k into the heap.
+def largest(dictionary,numberWanted):
+    return heapq.nlargest(numberWanted, dictionary, key = lambda k: dictionary[k])
 
 def openFile(tarFile):
     with open(tarFile) as temp:
@@ -121,6 +123,7 @@ def topCustomer(tarFile, colNum):
         print("Their IP Address indicates they are located in", IPQuery(table[biggestRow][5])[5])
 
 #This function takes an IP address and feeds it into a geolocation API, it returns a list of location data.
+#Uses API described here: http://ip-api.com/docs/
 def IPQuery(ip_address):
     serviceurl = 'http://ip-api.com/csv/'
     url = serviceurl + ip_address
