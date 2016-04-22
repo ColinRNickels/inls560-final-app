@@ -68,16 +68,16 @@ def number1(tarFile, colNum):
         for line in workingFile:
             table.append(line.split(","))
         data = dict()
-    for row in table[1:]:
-        if row[colNum] not in data:
-            data[row[colNum]] = 1
-        else:
-            data[row[colNum]] = data[row[colNum]] + 1
-    for currentVal in data.keys() :
-        if largest is None or data[currentVal] > largest :
-            largest = data[currentVal]
-            key = currentVal
-    print(key, largest)
+        for row in table[1:]:
+            if row[colNum] not in data:
+                data[row[colNum]] = 1
+            else:
+                data[row[colNum]] = data[row[colNum]] + 1
+        for currentVal in data.keys() :
+            if largest is None or data[currentVal] > largest :
+                largest = data[currentVal]
+                key = currentVal
+        return(key, largest)
     
 #This function takes a target csv file, sums an entire collumn and averages its content.
 def averageValue(tarFile, colNum):
@@ -120,7 +120,7 @@ def topCustomer(tarFile, colNum):
         print("Each '$' = 100 dollars")
         print("Their IP Address indicates they are located in", IPQuery(table[biggestRow][5])[5])
 
-#This function takes an IP address and feeds it into a geolocation API, it returns a list of locations.
+#This function takes an IP address and feeds it into a geolocation API, it returns a list of location data.
 def IPQuery(ip_address):
     serviceurl = 'http://ip-api.com/csv/'
     url = serviceurl + ip_address
