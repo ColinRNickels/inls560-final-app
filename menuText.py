@@ -1,5 +1,5 @@
 #!usr/bin/python3
-# This is where we declare variables that effect the whole program
+# This module holds all the text that the menus display
 
 optionsTop = """1 - Choose a file
 2 - Import a file
@@ -31,3 +31,6 @@ intro = "Welcome to SalesData+ \nThis program offers several different ways of e
 done = """1 - Get more data from this file
 2 - Choose a different file
 x - Exit """
+
+helpText = """This program offers many different views on a set of sales data. Please select one of the options presented
+You can see what options are currently available at any time by pressing enter"""

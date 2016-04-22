@@ -3,6 +3,7 @@
 from menuText import *
 from fileChangers import *
 
+#this menu allows you to choose what file you want to operate on.
 def fileMenu():
     going = True
     while(going):
@@ -25,15 +26,24 @@ def fileMenu():
         elif(userSays == "4"):
             print("To import your own data, please go to the github repository and attach a file. \n Then come back here and rerun this program. \n If you've already done this, please give me the name of your file")
             fileOpen = input("")
+            try: 
+                with open(fileOpen) as f:
+                    f.read()
+            except:
+                print("I don't recognize that file")
+                continue
             fileOptions(fileOpen)
         if(userSays == "x"):
             #Found this way to exit on http://stackoverflow.com/questions/19747371/python-exit-commands-why-so-many-and-when-should-each-be-used
             raise SystemExit()
+        if(userSays == "?"):
+            print(helpText)
+        
         else:
             continue
             
             
-
+#this is the first menu, it calls other menus and functions as requested by the user.
 def topLevelMenu():
     going = True
     while(going):
@@ -46,10 +56,20 @@ def topLevelMenu():
             print(thing)
         elif(userSays == "2"):
             print("To import your own data, please go to the github repository and attach a file. \n Then come back here and rerun this program. \n If you've already done this, please give me the name of your file")
-            fileOptions(fileOpen)
+            fileToOpen = input("What is the name of your data file \n")
+            try: 
+                with open(fileToOpen) as f:
+                    f.read()
+            except:
+                print("I don't recognize that file")
+                continue
+            fileOptions(fileToOpen)
+        elif(userSays == "?"):
+            print(helpText)
         else: 
             continue
             
+#This is the menu that operates on files. It takes an argument that it passes to all the other functions.            
 def fileOptions(tarFile):
     going = True
     while (going):
@@ -84,7 +104,9 @@ def fileOptions(tarFile):
             going = askContinue()
             
         elif(userSays == "6"):
-            print("The best referring domain is: ", number1(tarFile, 6))
+            bDomain, numRefs = number1(tarFile, 6)
+            print("The best referring domain is:",bDomain)
+            print("With " + str(numRefs) + " refferals")
             going = askContinue()
             
         elif(userSays == "7"):
@@ -93,11 +115,14 @@ def fileOptions(tarFile):
         
         elif(userSays == "8"):
             going = False
-           
+            
+        elif(userSays == "?"):
+            print(helpText)
             
         else:
            continue
        
+ #This little function allows the user to opt out after getting any data.      
 def askContinue():
     going = True
     while(going):
@@ -109,5 +134,7 @@ def askContinue():
             return True
         elif(userSays == "2"):
             return False
+        elif(userSays == "?"):
+            print(helpText)
         else:
             continue
