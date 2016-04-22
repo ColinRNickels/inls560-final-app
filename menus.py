@@ -4,12 +4,12 @@ from variables import *
 from fileChangers import *
 
 def fileMenu():
-    print(optionsFiles)
     going = True
     while(going):
-        userSays = input("Please select one of the above options \n")
+        print("=" * 45)
+        userSays = input("Please select one of the following options \n" + "=" * 45 + "\n" + optionsFiles  + "\n")
         if(userSays == "5"):
-            sys.exit()
+            break
         elif(userSays == "1"):
             print("you said 1")
             fileOpen = "mock_data1.csv"
@@ -26,18 +26,20 @@ def fileMenu():
             print("To import your own data, please go to the github repository and attach a file. \n Then come back here and rerun this program. \n If you've already done this, please give me the name of your file")
             fileOpen = input("")
             fileOptions(fileOpen)
+        if(userSays == "x"):
+            #Found this way to exit on http://stackoverflow.com/questions/19747371/python-exit-commands-why-so-many-and-when-should-each-be-used
+            raise SystemExit()
         else:
-            print("Please choose one of the options: " + optionsFiles)
             continue
             
             
 
 def topLevelMenu():
-    print(optionsTop)
     going = True
     while(going):
-        userSays = input("Please select one of the above options \n")
-        if(userSays == "3"):
+        print("=" * 45)
+        userSays = input("Please select one of the following options \n"  + "=" * 45 + "\n" + optionsTop + "\n")
+        if(userSays == "x"):
             going = False
         elif(userSays == "1"):
             thing = openFile(fileMenu())
@@ -45,15 +47,45 @@ def topLevelMenu():
         elif(userSays == "2"):
             print("To import your own data, please go to the github repository and attach a file. \n Then come back here and rerun this program. \n If you've already done this, please give me the name of your file")
             fileOptions(fileOpen)
+        else: 
+            continue
             
 def fileOptions(tarFile):
-    print(optionsFunctions)
     going = True
     while (going):
-        userSays = input("Please select one of the above options \n")
+        print("=" * 45)
+        userSays = input("Please select one of the following options \n" + "=" * 45 + "\n" + optionsFunctions + "\n")
         if(userSays == "9"):
             break
+        
+        if(userSays == "x"):
+            #Found this way to exit on http://stackoverflow.com/questions/19747371/python-exit-commands-why-so-many-and-when-should-each-be-used
+            raise SystemExit()
+            
         elif(userSays == "1"):
             percentBreakdown(tarFile, 4)
+            
+        elif(userSays == "2"):
+            print("you said 2")
+           
+        elif(userSays == "3"):
+            print("you said 3")
+            
+        elif(userSays == "4"):
+            print("you said 4")
+            
+        elif(userSays == "5"):
+            print("you said 5")
+            
+        elif(userSays == "6"):
+            print("you said 6")
+            
+        elif(userSays == "7"):
+            print("you said 7")
+        
+        elif(userSays == "8"):
+            print("you said 8")
+            
+            
         else:
-            print("Please choose on of the options: " + optionsFunctions)
+           continue

@@ -3,13 +3,14 @@
 
 optionsTop = """1 - Open a file
 2 - Import a file
-3 - Exit to Command Line"""
+x - Exit to command line"""
 
 optionsFiles ="""1 - Open Mock Data 1
 2 - Open Mock Data 2
 3 - Open Mock Data 3
 4 - Import your own data
-5 - Exit to Command Line"""
+5 - Return to previous menu
+x - Exit to command line"""
 
 
 optionsFunctions = """1 - Gender breakdown
@@ -20,4 +21,9 @@ optionsFunctions = """1 - Gender breakdown
 6 - Best referrer
 7 - Best Customer (who has paid us the most)
 8 - Choose a different File
-9 - Exit to Command Line"""
+9 - Return to previous menu
+x - Exit to command line"""
+
+helpText = "At any time press space bar to get a list of options."
+
+intro = "Welcome to SalesData+ \nThis program offers several different ways of examining a set of sales data.\nOn any screen enter to see what your current options are. \nEnter '?' for help"
