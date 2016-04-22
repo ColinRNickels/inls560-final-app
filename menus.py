@@ -1,6 +1,6 @@
 #!usr/bin/python3
 # This is where we host our functions that display menus
-from variables import *
+from menuText import *
 from fileChangers import *
 
 def fileMenu():
@@ -92,8 +92,8 @@ def fileOptions(tarFile):
             going = askContinue()
         
         elif(userSays == "8"):
-            print("you said 8")
-            going = askContinue()
+            going = False
+           
             
         else:
            continue

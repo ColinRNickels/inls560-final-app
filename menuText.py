@@ -9,7 +9,7 @@ optionsFiles ="""1 - Open Mock Data 1
 2 - Open Mock Data 2
 3 - Open Mock Data 3
 4 - Import your own data
-5 - Return to previous menu
+5 - Return to top menu
 x - Exit to command line"""
 
 

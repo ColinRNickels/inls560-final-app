@@ -1,5 +1,7 @@
 #This module holds my functions that manipulate files
+import urllib.request, urllib.error
 import heapq
+import webbrowser
 #This function comes from http://www.pataprogramming.com/2010/03/python-dict-n-largest/ with some modification
 #With lots of help from https://docs.python.org/3.0/library/heapq.html
 def largest(dictionary,numberwanted):
@@ -116,3 +118,22 @@ def topCustomer(tarFile, colNum):
         print("They have paid: ", biggestAmount)
         print("$" * (int(float(biggestAmount[1:])/100)))
         print("Each '$' = 100 dollars")
+        print("Their IP Address indicates they are located in", IPQuery(table[biggestRow][5])[5])
+
+#This function takes an IP address and feeds it into a geolocation API, it returns a list of locations.
+def IPQuery(ip_address):
+    serviceurl = 'http://ip-api.com/csv/'
+    url = serviceurl + ip_address
+    uh = urllib.request.urlopen(url)
+    result = uh.read().decode()
+    line = result.split(",")
+    resultingList = []
+    for item in line:
+        if item == "":
+            resultingList.append("no value")
+        else:
+            resultingList.append(item)
+            
+    return(resultingList)
+   
+    
