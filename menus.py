@@ -56,7 +56,7 @@ def fileOptions(tarFile):
         print("=" * 45)
         userSays = input("Please select one of the following options \n" + "=" * 45 + "\n" + optionsFunctions + "\n")
         if(userSays == "9"):
-            break
+            going = False
         
         if(userSays == "x"):
             #Found this way to exit on http://stackoverflow.com/questions/19747371/python-exit-commands-why-so-many-and-when-should-each-be-used
@@ -64,36 +64,38 @@ def fileOptions(tarFile):
             
         elif(userSays == "1"):
             percentBreakdown(tarFile, 4)
-            askContinue()
+            going = askContinue()
             
         elif(userSays == "2"):
             topFive(tarFile, 1)
-            askContinue()
+            going = askContinue()
            
         elif(userSays == "3"):
             topFive(tarFile, 2)
-            askContinue()
+            going = askContinue()
             
         elif(userSays == "4"):
             print("you said 4")
-            askContinue()
+            print("The average amount owed is: ", averageValue(tarFile, 7))
+            going = askContinue()
             
         elif(userSays == "5"):
             print("you said 5")
-            askContinue()
+            print("The average amount paid is: ", averageValue(tarFile, 8))
+            
+            going = askContinue()
             
         elif(userSays == "6"):
             print("you said 6")
-            askContinue()
+            going = askContinue()
             
         elif(userSays == "7"):
             print("you said 7")
-            askContinue()
+            going = askContinue()
         
         elif(userSays == "8"):
             print("you said 8")
-            askContinue()
-            
+            going = askContinue()
             
         else:
            continue
@@ -106,4 +108,8 @@ def askContinue():
         if(userSays == "x"):
             raise SystemExit
         elif(userSays == "1"):
-            going = False
+            return True
+        elif(userSays == "2"):
+            return False
+        else:
+            continue

@@ -55,3 +55,23 @@ def topFive(tarFile, colNum):
             print(item + ": \t\t " + "*" * (data[item]))
         else:
             print(item + ": \t " + "*" * (data[item]))
+def averageValue(tarFile, colNum):
+    counter = 0
+    total = 0
+    with open(tarFile) as temp:
+        workingFile = temp.readlines()
+        table = []
+        for line in workingFile:
+            table.append(line.split(","))
+    for row in table[1:]:
+        counter = counter +1
+        tempValue = row[colNum]
+        tempValue = float(tempValue[1:])
+        total = total + tempValue
+    av = (total/counter)
+    av = str(av)
+    printAv = av[:5]
+    return printAv    
+        
+       
+    

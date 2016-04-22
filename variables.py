@@ -1,7 +1,7 @@
 #!usr/bin/python3
 # This is where we declare variables that effect the whole program
 
-optionsTop = """1 - Open a file
+optionsTop = """1 - Choose a file
 2 - Import a file
 x - Exit to command line"""
 
@@ -21,12 +21,13 @@ optionsFunctions = """1 - Gender breakdown
 6 - Best referrer
 7 - Best Customer (who has paid us the most)
 8 - Choose a different File
-9 - Return to previous menu
+9 - Return to top menu
 x - Exit to command line"""
 
 helpText = "At any time press space bar to get a list of options."
 
 intro = "Welcome to SalesData+ \nThis program offers several different ways of examining a set of sales data.\nOn any screen enter to see what your current options are. \nEnter '?' for help"
 
-done = """1 - Continue
+done = """1 - Get more data from this file
+2 - Choose a different file
 x - Exit """
