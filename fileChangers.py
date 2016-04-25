@@ -103,8 +103,8 @@ def averageValue(tarFile, colNum):
 #This function takes a target csv file, turns it into a table (list of lists), finds the largest value in one collumn of that list, then returns the value, and two other cells on that row
 def topCustomer(tarFile, colNum):
     with open(tarFile) as temp:
-        biggestAmount = None
-        biggestRow = None
+        biggestAmount = 0
+        biggestRow = 0
         rowNum = 0
         workingFile = temp.readlines()
         table = []
@@ -112,13 +112,13 @@ def topCustomer(tarFile, colNum):
             table.append(line.split(","))
         for row in table[1:]:
             rowNum = rowNum + 1
-            if biggestAmount is None or row[colNum] > biggestAmount:
-                biggestAmount = row[colNum]
+            toInt = row[colNum][1:].rstrip("\n")
+            if (int(toInt[:-3]) > biggestAmount):
+                biggestAmount = int(toInt[:-3])
                 biggestRow = rowNum
-        # print(biggestAmount, biggestRow)
         print("The Best Customer is: ", table[biggestRow][1],table[biggestRow][2])
         print("They have paid: ", biggestAmount)
-        print("$" * (int(float(biggestAmount[1:])/100)))
+        print("$" * (int(float(biggestAmount)/100)))
         print("Each '$' = 100 dollars")
         print("Their IP Address indicates they are located in", IPQuery(table[biggestRow][5])[5])
 
