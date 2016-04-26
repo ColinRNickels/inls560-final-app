@@ -117,7 +117,7 @@ def topCustomer(tarFile, colNum):
                 biggestAmount = int(toInt[:-3])
                 biggestRow = rowNum
         print("The Best Customer is: ", table[biggestRow][1],table[biggestRow][2])
-        print("They have paid: ", biggestAmount)
+        print("They have paid: $", biggestAmount)
         print("$" * (int(float(biggestAmount)/100)))
         print("Each '$' = 100 dollars")
         print("Their IP Address indicates they are located in", IPQuery(table[biggestRow][5])[5])
